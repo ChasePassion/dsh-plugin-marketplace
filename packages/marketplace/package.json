@@ -1,0 +1,38 @@
+{
+  "name": "@dsh-marketplace/marketplace",
+  "version": "0.1.0",
+  "description": "DSH plugin marketplace: full catalog of official + community dsh plugins, one-click install into the active profile",
+  "license": "MIT",
+  "type": "module",
+  "main": "./dist/index.js",
+  "exports": {
+    ".": { "types": "./dist/types.d.ts", "default": "./dist/index.js" },
+    "./client": { "default": "./dist/client.js" },
+    "./types": { "types": "./dist/types.d.ts", "default": "./dist/types.js" }
+  },
+  "files": ["dist"],
+  "scripts": {
+    "build": "node build.mjs",
+    "test": "node --test test/"
+  },
+  "peerDependencies": {
+    "react": "^18.2.0",
+    "@deepseek-ai/dsh-client-locale": "^0.1.0-rc.6",
+    "@deepseek-ai/dsh-client-runtime": "^0.1.0-rc.6",
+    "@deepseek-ai/dsh-client-ui-primitives": "^0.1.0-rc.6",
+    "@deepseek-ai/dsh-client-ui-settings": "^0.1.0-rc.6",
+    "@deepseek-ai/dsh-client-ui-slots": "^0.1.0-rc.6",
+    "@deepseek-ai/cordis": "^4.0.1",
+    "@deepseek-ai/dsh-typert-protocol": "^0.1.0-rc.6",
+    "zod": "^4.0.0"
+  },
+  "devDependencies": {
+    "@types/node": "^22.0.0",
+    "@types/react": "~18.3.1",
+    "esbuild": "^0.24.0",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
+    "typescript": "^5.6.0"
+  },
+  "engines": { "node": ">=18" }
+}
