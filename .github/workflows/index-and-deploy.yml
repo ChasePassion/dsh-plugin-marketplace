@@ -1,0 +1,32 @@
+# 索引器：定时扫描 npm → 生成 registry.json → 发布 GitHub Pages
+name: index-and-deploy
+
+on:
+  schedule:
+    - cron: '0 */6 * * *'   # 每 6 小时
+  workflow_dispatch:
+
+permissions:
+  contents: write
+  pages: write
+  id-token: write
+
+jobs:
+  index:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+      - name: Run indexer
+        run: |
+          npm ci --prefix indexer || true
+          node indexer/index.mjs
+      - name: Commit registry.json
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add registry/registry.json
+          git diff --cached --quiet || git commit -m "chore: refresh registry index"
+          git push
