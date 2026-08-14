@@ -119,10 +119,10 @@ export class MarketplaceGateway extends TypertRemoteService {
     }
   }
 
-  async list(query?: string, origin?: string, installedOnly?: boolean): Promise<MarketplaceListResult> {
+  async list(request: { query?: string; origin?: string; installedOnly?: boolean } = {}): Promise<MarketplaceListResult> {
     const idx = await this.index();
     let entries = idx.plugins;
-    const q = (query ?? "").trim().toLowerCase();
+    const q = (request.query ?? "").trim().toLowerCase();
     if (q) {
       entries = entries.filter((e) =>
         e.name.toLowerCase().includes(q) ||
@@ -130,19 +130,21 @@ export class MarketplaceGateway extends TypertRemoteService {
         e.tags.some((t) => t.toLowerCase().includes(q)),
       );
     }
-    if (origin && origin !== "all") {
+    const origin = request.origin ?? "all";
+    if (origin !== "all") {
       entries = entries.filter((e) => e.origin === origin);
     }
     const merged = await Promise.all(entries.map((e) => this.mergeLocal(e)));
-    if (installedOnly) {
+    if (request.installedOnly) {
       const filtered = merged.filter((e) => e.local.installed);
       return { updatedAt: idx.updatedAt, entries: filtered, official: this.official(), installed: this.installed() };
     }
     return { updatedAt: idx.updatedAt, entries: merged, official: this.official(), installed: this.installed() };
   }
 
-  async detail(id: string): Promise<MarketplaceDetailResult> {
+  async detail(request: { id: string }): Promise<MarketplaceDetailResult> {
     const idx = await this.index();
+    const id = request.id;
     const entry = idx.plugins.find((p) => p.id === id);
     if (!entry) throw new Error(`not-found: ${id}`);
     let readme: string | null = null;

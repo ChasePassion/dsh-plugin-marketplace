@@ -402,7 +402,7 @@ function apply(ctx) {
     return result.value;
   };
   const api = {
-    list: (opts) => call("list", opts?.query ?? "", opts?.origin ?? "all", Boolean(opts?.installedOnly)),
+    list: (opts) => call("list", { query: opts?.query ?? "", origin: opts?.origin ?? "all", installedOnly: Boolean(opts?.installedOnly) }),
     refresh: () => call("refresh"),
     install: async (id) => { await mountPromise; const out = await call("install", { id }); if (!out.ok) throw new Error(out.code + ": " + out.message); },
     uninstall: async (id, removeDeps) => { const out = await call("uninstall", { id, removeDeps }); if (!out.ok) throw new Error(out.code + ": " + out.message); },

@@ -54,7 +54,7 @@ test("install: real pnpm add + patch block, then uninstall with deps", async () 
   assert.ok(existsSync(join(profile, "node_modules", "dsh-chat-import")), "package installed by pnpm");
 
   // installed state visible
-  const after = await gw.list("chat-import");
+  const after = await gw.list({ query: "chat-import" });
   const row = after.entries.find((e) => e.id === "chat-import");
   assert.ok(row && row.local.installed, "installed state visible");
 

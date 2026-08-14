@@ -64,6 +64,18 @@ ${bundle}
   console.log("src/client.tsx missing — client bundle skipped");
 }
 
+// ── typert host face (registered by dsh-typert-loader) ───────────
+await build({
+  entryPoints: [join(__dirname, "src/typert.ts")],
+  bundle: true,
+  format: "esm",
+  platform: "node",
+  target: "node18",
+  outfile: join(DIST, "typert.js"),
+  external: [...EXTERNAL_DSH, "zod"],
+  logLevel: "warning",
+});
+
 // ── shared types re-export ────────────────────────────────────────
 copyFileSync(join(__dirname, "src/types.ts"), join(DIST, "types.js"));
 console.log("build done");
