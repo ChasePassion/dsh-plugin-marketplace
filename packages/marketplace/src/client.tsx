@@ -191,7 +191,10 @@ function MarketplaceTab(props) {
     let current = true;
     Promise.resolve()
       .then(() => api.list({ query: "", origin: "all", installedOnly: false }))
-      .then((snapshot) => { if (current) setState({ status: "ready", snapshot }); }, () => { if (current) setState({ status: "error" }); });
+      .then((snapshot) => { if (current) setState({ status: "ready", snapshot }); }, (e) => {
+        console.error("[marketplace] initial list FAILED:", e);
+        if (current) setState({ status: "error" });
+      });
     return () => { current = false; };
   }, [api, request]);
 
@@ -225,6 +228,7 @@ function MarketplaceTab(props) {
       setConfirm(null);
       setRequest((v) => v + 1); // reload list
     } catch (e) {
+      console.error("[marketplace] action failed:", action, JSON.stringify(e?.message ?? String(e)));
       setOpError(String(e && e.message ? e.message : e));
     } finally {
       setBusy(null);
@@ -390,15 +394,30 @@ function MarketplaceTab(props) {
 }
 
 function apply(ctx) {
+  console.log("[marketplace] client apply: registering tab");
   ensureStyle();
   ctx.effect(() => ctx.locale.register(NS, { zh, en }), "marketplace: dictionaries");
   const t = ctx.locale.bind(NS);
   let disposeMount = null;
-  const mountPromise = Promise.resolve(ctx.remote.$mount(TYPERT)).then((dispose) => { disposeMount = dispose; });
+  const mountPromise = Promise.resolve(ctx.remote.$mount(TYPERT)).then(
+    (dispose) => { disposeMount = dispose; console.log("[marketplace] remote $mount OK"); },
+    (e) => { console.error("[marketplace] remote $mount FAILED:", e); },
+  );
 
   const call = async (method, ...args) => {
-    const result = await ctx.remote.marketplace[method](...args);
-    if (!result.ok) throw new Error((result.error.code || "remote") + ": " + result.error.message);
+    console.log("[marketplace] remote call:", method, JSON.stringify(args));
+    let result;
+    try {
+      result = await ctx.remote.marketplace[method](...args);
+    } catch (e) {
+      console.error("[marketplace] remote call THREW for", method, e);
+      throw e;
+    }
+    if (!result.ok) {
+      console.error("[marketplace] remote call error result:", method, JSON.stringify(result.error ?? result));
+      throw new Error((result.error?.code || "remote") + ": " + (result.error?.message ?? JSON.stringify(result.error ?? result)));
+    }
+    console.log("[marketplace] remote call OK:", method);
     return result.value;
   };
   const api = {

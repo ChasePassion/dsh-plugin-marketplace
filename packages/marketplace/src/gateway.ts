@@ -52,6 +52,19 @@ export class MarketplaceGateway extends TypertRemoteService {
       config.fetchImpl,
     );
     this.#applyRemoteMarkers();
+    this.ctx.logger.info("[marketplace] gateway constructed, profile=" + this.profile + " registry=" + (config.registryUrl ?? DEFAULT_REGISTRY_URL));
+  }
+
+  private log(method: string, detail?: unknown): void {
+    try {
+      this.ctx.logger.info("[marketplace] " + method + (detail === undefined ? "" : " " + JSON.stringify(detail)));
+    } catch { /* logger unavailable */ }
+  }
+
+  private logError(method: string, error: unknown): void {
+    try {
+      this.ctx.logger.error("[marketplace] " + method + " ERROR: " + (error instanceof Error ? error.stack ?? error.message : String(error)));
+    } catch { /* logger unavailable */ }
   }
 
   /**
@@ -120,6 +133,7 @@ export class MarketplaceGateway extends TypertRemoteService {
   }
 
   async list(request: { query?: string; origin?: string; installedOnly?: boolean } = {}): Promise<MarketplaceListResult> {
+    this.log("list called", { query: request.query, origin: request.origin });
     const idx = await this.index();
     let entries = idx.plugins;
     const q = (request.query ?? "").trim().toLowerCase();
@@ -143,6 +157,7 @@ export class MarketplaceGateway extends TypertRemoteService {
   }
 
   async detail(request: { id: string }): Promise<MarketplaceDetailResult> {
+    this.log("detail called", { id: request.id });
     const idx = await this.index();
     const id = request.id;
     const entry = idx.plugins.find((p) => p.id === id);
@@ -161,6 +176,7 @@ export class MarketplaceGateway extends TypertRemoteService {
   }
 
   async install(request: { id: string; version?: string; entryOverrides?: { id?: string; config?: Record<string, unknown> } }): Promise<MarketplaceRemoteResult<MarketplaceActionResult>> {
+    this.log("install called", { id: request.id, version: request.version });
     try {
       const idx = await this.index();
       const entry = idx.plugins.find((p) => p.id === request.id);
@@ -183,12 +199,14 @@ export class MarketplaceGateway extends TypertRemoteService {
       writePatch(patchFile, appendBlock(current, entry.id, { id: entryId, name: entry.package, config }));
       return { id: entry.id, ok: true };
     } catch (e) {
+      this.logError("install", e);
       if (e instanceof EntryConflictError) return { id: request.id, ok: false, code: "entry-conflict", message: e.message };
       return { id: request.id, ok: false, code: "internal", message: String(e) };
     }
   }
 
   async uninstall(request: { id: string; removeDeps?: boolean }): Promise<MarketplaceRemoteResult<MarketplaceActionResult>> {
+    this.log("uninstall called", { id: request.id, removeDeps: request.removeDeps });
     const patchFile = profileDir(this.profile);
     const current = readPatch(patchFile);
     const removed = removeBlock(current, request.id);
@@ -205,6 +223,7 @@ export class MarketplaceGateway extends TypertRemoteService {
   }
 
   async update(request: { id: string; version?: string }): Promise<MarketplaceRemoteResult<MarketplaceActionResult>> {
+    this.log("update called", { id: request.id, version: request.version });
     const rows = this.installed();
     const row = rows.find((r) => r.marketId === request.id || r.id === request.id);
     if (!row || !row.name) return { id: request.id, ok: false, code: "not-installed", message: `'${request.id}' is not installed` };
@@ -215,6 +234,7 @@ export class MarketplaceGateway extends TypertRemoteService {
   }
 
   async enable(request: { id: string }): Promise<MarketplaceRemoteResult<MarketplaceActionResult>> {
+    this.log("enable called", { id: request.id });
     const official = this.official();
     const pkg = official.find((p) => p.name === request.id || p.name === `@deepseek-ai/${request.id}`);
     if (!pkg) return { id: request.id, ok: false, code: "not-found", message: `official package '${request.id}' not found` };
@@ -231,6 +251,7 @@ export class MarketplaceGateway extends TypertRemoteService {
   }
 
   async disable(request: { id: string }): Promise<MarketplaceRemoteResult<MarketplaceActionResult>> {
+    this.log("disable called", { id: request.id });
     const rows = this.installed();
     const row = rows.find((r) => r.marketId?.startsWith("official-") && (r.name === request.id || r.name === `@deepseek-ai/${request.id}`));
     if (!row?.marketId) return { id: request.id, ok: false, code: "not-installed", message: `no enabled official row for '${request.id}'` };
@@ -242,6 +263,7 @@ export class MarketplaceGateway extends TypertRemoteService {
   }
 
   async refresh(): Promise<MarketplaceRefreshResult> {
+    this.log("refresh called");
     const idx = await this.registry.refresh();
     return { updatedAt: idx.updatedAt };
   }
