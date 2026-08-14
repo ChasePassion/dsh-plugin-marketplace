@@ -1,0 +1,11 @@
+{
+  "name": "dsh-plugin-marketplace-indexer",
+  "private": true,
+  "version": "0.1.0",
+  "type": "module",
+  "description": "Indexer for the DSH plugin marketplace: scans npm for DSH plugins and builds registry.json",
+  "scripts": {
+    "index": "node index.mjs"
+  },
+  "engines": { "node": ">=18" }
+}

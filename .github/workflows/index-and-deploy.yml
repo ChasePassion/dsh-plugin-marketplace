@@ -1,15 +1,19 @@
-# 索引器：定时扫描 npm → 生成 registry.json → 发布 GitHub Pages
+# Indexer: scan npm for DSH plugins -> registry.json -> GitHub Pages
 name: index-and-deploy
 
 on:
   schedule:
-    - cron: '0 */6 * * *'   # 每 6 小时
+    - cron: '0 */6 * * *'   # every 6 hours
   workflow_dispatch:
 
 permissions:
   contents: write
   pages: write
   id-token: write
+
+concurrency:
+  group: pages
+  cancel-in-progress: true
 
 jobs:
   index:
@@ -20,13 +24,21 @@ jobs:
         with:
           node-version: 22
       - name: Run indexer
-        run: |
-          npm ci --prefix indexer || true
-          node indexer/index.mjs
-      - name: Commit registry.json
+        run: node indexer/index.mjs
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      - name: Commit index artifacts
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
-          git add registry/registry.json
-          git diff --cached --quiet || git commit -m "chore: refresh registry index"
+          git add registry/registry.json registry/cache/stars.json
+          git diff --cached --quiet || git commit -m "chore: refresh marketplace registry index"
           git push
+      - name: Setup Pages
+        uses: actions/configure-pages@v5
+      - name: Upload Pages artifact
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: registry
+      - name: Deploy to Pages
+        uses: actions/deploy-pages@v4
