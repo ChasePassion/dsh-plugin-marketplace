@@ -51,6 +51,31 @@ export class MarketplaceGateway extends TypertRemoteService {
       config.registryUrl ?? DEFAULT_REGISTRY_URL,
       config.fetchImpl,
     );
+    this.#applyRemoteMarkers();
+  }
+
+  /**
+   * Manual application of the standard Remote decorator: esbuild transforms
+   * decorators with legacy semantics, which the typert-protocol Remote
+   * decorator rejects. Applying it by hand keeps the bundle build
+   * tool-agnostic. Must run after super() so the instance has its prototype.
+   */
+  #applyRemoteMarkers(): void {
+    const methods = ["list", "detail", "install", "uninstall", "update", "enable", "disable", "refresh"] as const;
+    for (const method of methods) {
+      const context = {
+        kind: "method",
+        name: method,
+        static: false,
+        private: false,
+        access: {
+          has: (obj: unknown) => method in (obj as object),
+          get: (obj: unknown) => (obj as Record<string, unknown>)[method],
+        },
+        addInitializer: (fn: (this: unknown) => void) => { fn.call(this); },
+      };
+      Remote(method)((this as unknown as Record<string, unknown>)[method] as never, context as never);
+    }
   }
 
   private async index(): Promise<RegistryIndex> {
@@ -94,7 +119,6 @@ export class MarketplaceGateway extends TypertRemoteService {
     }
   }
 
-  @Remote("list")
   async list(query?: string, origin?: string, installedOnly?: boolean): Promise<MarketplaceListResult> {
     const idx = await this.index();
     let entries = idx.plugins;
@@ -117,7 +141,6 @@ export class MarketplaceGateway extends TypertRemoteService {
     return { updatedAt: idx.updatedAt, entries: merged, official: this.official(), installed: this.installed() };
   }
 
-  @Remote("detail")
   async detail(id: string): Promise<MarketplaceDetailResult> {
     const idx = await this.index();
     const entry = idx.plugins.find((p) => p.id === id);
@@ -135,7 +158,6 @@ export class MarketplaceGateway extends TypertRemoteService {
     return { entry: await this.mergeLocal(entry), readme };
   }
 
-  @Remote("install")
   async install(request: { id: string; version?: string; entryOverrides?: { id?: string; config?: Record<string, unknown> } }): Promise<MarketplaceRemoteResult<MarketplaceActionResult>> {
     try {
       const idx = await this.index();
@@ -164,7 +186,6 @@ export class MarketplaceGateway extends TypertRemoteService {
     }
   }
 
-  @Remote("uninstall")
   async uninstall(request: { id: string; removeDeps?: boolean }): Promise<MarketplaceRemoteResult<MarketplaceActionResult>> {
     const patchFile = profileDir(this.profile);
     const current = readPatch(patchFile);
@@ -181,7 +202,6 @@ export class MarketplaceGateway extends TypertRemoteService {
     return { id: request.id, ok: true };
   }
 
-  @Remote("update")
   async update(request: { id: string; version?: string }): Promise<MarketplaceRemoteResult<MarketplaceActionResult>> {
     const rows = this.installed();
     const row = rows.find((r) => r.marketId === request.id || r.id === request.id);
@@ -192,7 +212,6 @@ export class MarketplaceGateway extends TypertRemoteService {
     return { id: request.id, ok: true };
   }
 
-  @Remote("enable")
   async enable(request: { id: string }): Promise<MarketplaceRemoteResult<MarketplaceActionResult>> {
     const official = this.official();
     const pkg = official.find((p) => p.name === request.id || p.name === `@deepseek-ai/${request.id}`);
@@ -209,7 +228,6 @@ export class MarketplaceGateway extends TypertRemoteService {
     }
   }
 
-  @Remote("disable")
   async disable(request: { id: string }): Promise<MarketplaceRemoteResult<MarketplaceActionResult>> {
     const rows = this.installed();
     const row = rows.find((r) => r.marketId?.startsWith("official-") && (r.name === request.id || r.name === `@deepseek-ai/${request.id}`));
@@ -221,7 +239,6 @@ export class MarketplaceGateway extends TypertRemoteService {
     return { id: row.name, ok: true };
   }
 
-  @Remote("refresh")
   async refresh(): Promise<MarketplaceRefreshResult> {
     const idx = await this.registry.refresh();
     return { updatedAt: idx.updatedAt };

@@ -21,6 +21,19 @@ function kindOf(name: string, manifest: Record<string, unknown>): OfficialPackag
   return "library";
 }
 
+/** Walk upward from a directory to the nearest node_modules/@deepseek-ai scope. */
+function nearestDshScope(fromDir: string): string | null {
+  let dir = fromDir;
+  for (let i = 0; i < 12; i++) {
+    const candidate = join(dir, "node_modules", "@deepseek-ai");
+    if (existsSync(candidate)) return candidate;
+    const parent = dirname(dir);
+    if (parent === dir) return null;
+    dir = parent;
+  }
+  return null;
+}
+
 /** Candidate roots holding @deepseek-ai packages, most authoritative first. */
 export function scanRoots(installRoot?: string): string[] {
   const roots: string[] = [];
@@ -29,11 +42,10 @@ export function scanRoots(installRoot?: string): string[] {
   if (installRoot && existsSync(join(installRoot, "node_modules", "@deepseek-ai"))) {
     roots.push(join(installRoot, "node_modules", "@deepseek-ai"));
   }
-  // our own resolution anchor: packages/marketplace -> node_modules/@deepseek-ai
-  const self = join(__dirname, "..", "..", "..", "..", "node_modules", "@deepseek-ai");
-  if (existsSync(self) && !roots.includes(self)) roots.push(self);
-  const profile = profileDir();
-  const prof = join(profile, "node_modules", "@deepseek-ai");
+  // nearest scope from this package (covers npm installs and test trees)
+  const nearest = nearestDshScope(__dirname);
+  if (nearest && !roots.includes(nearest)) roots.push(nearest);
+  const prof = join(profileDir(), "node_modules", "@deepseek-ai");
   if (existsSync(prof) && !roots.includes(prof)) roots.push(prof);
   return roots;
 }
