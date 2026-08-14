@@ -8,25 +8,50 @@ DeepSeek Harness (DSH) 插件市场：**所有开发者给 DSH 开发的插件�
 
 | 目录 | 用途 |
 |---|---|
-| `indexer/` | 索引器：自动扫描 npm / GitHub，识别 DSH 插件并生成 `registry.json` |
-| `registry/` | 生成的插件目录数据（CI 自动产出，勿手改） |
-| `packages/` | DSH 端集成包（`dsh-host-marketplace` 服务 + `dsh-client-ui-marketplace` 市场标签页） |
+| `indexer/` | 索引器：自动扫描 npm，识别 DSH 插件并生成 `registry.json` |
+| `registry/` | 生成的插件目录数据（CI 每 6 小时自动产出） |
+| `packages/marketplace/` | DSH 端集成包（Host 服务 + 浏览器市场标签页，双面插件） |
 | `docs/` | 契约与设计文档 |
 
-## 核心思路
+## 架构
 
-1. **索引器自动收录**（SkillsMP 模式）：开发者 npm 发包即自动入市，零门槛，不靠人工 PR 精选
-2. **DSH 内置市场标签页**：设置 → 插件 → 市场，浏览/搜索/一键安装
-3. **安装 = 写 `cordis.patch.yml` 插件行**：官方插件本地已存在直接启用；社区插件 `pnpm add` + 写行，HMR 热生效，无需重启
-4. **Registry 托管在 GitHub Pages**：静态 `registry.json`，零服务器成本
+```
+Web GUI: 设置 → 插件 → [市场] 标签页 (dsh-client-ui-marketplace)
+   │ ctx.remote.marketplace.* (Typert Remote, 自挂载)
+Host: dsh-marketplace (ctx.marketplace)
+   ├─ registry 客户端: 拉取/缓存/刷新 registry.json (GitHub Pages)
+   ├─ 安装器: pnpm add → 写 cordis.patch.yml (带 # marketplace 标记) → HMR 热生效
+   ├─ 卸载器: 移除 patch 块 (可选 pnpm remove)
+   ├─ 官方扫描: 本地 @deepseek-ai/dsh-* 全量清单 (启用即写 patch 行)
+   └─ 已装状态: patch 行扫描 + pluginInventory 交集
+   │ HTTPS
+Registry: indexer (GitHub Action) → registry.json → GitHub Pages
+```
 
-## 识别信号（判断一个 npm 包是否是 DSH 插件）
+## 安装与使用
 
-- 包名 `dsh-*` / `dsh-plugin-*` 前缀
-- keywords 含 `dsh` / `deepseek-harness` / `dsh-plugin` / `cordis`
-- 依赖 `@deepseek-ai/dsh-*` 系列包
-- package.json 声明 `dsh.bundle` 字段
+1. 构建市场包并链接进 web profile（重启 DSH 后生效）：
+   ```powershell
+   cd packages/marketplace
+   npm install && node build.mjs
+   # 在 $DSH_HOME/profiles/web 的 cordis.patch.yml 追加：
+   # - insert:
+   #     - id: marketplace
+   #       name: '@dsh-marketplace/marketplace'
+   ```
+2. 打开 DSH Web GUI → 设置 → 插件 → **市场** 标签页
+3. 浏览社区插件（自动收录自 npm）与官方插件（本地已随 DSH 安装）
+4. 安装 = pnpm add + 写 patch 行（HMR 热生效，无需重启）；卸载/更新/启用/停用同理
+
+## 契约
+
+- `registry.json` v1 见 `docs/contract.md`
+- `cordis.patch.yml` 编辑协议：`# marketplace: <id>` 标记块，幂等、行级编辑、保留注释
 
 ## 状态
 
-Phase 1 进行中：索引器 + registry + DSH 端市场标签页。
+- ✅ Task 1: 索引器（200+ 插件自动收录，GitHub stars 流行度）
+- ✅ Task 2: Pages CI（每 6 小时自动刷新）
+- ✅ Task 3: Host 半（安装/卸载/更新/启用/停用 + 15 项测试全过）
+- ✅ Task 4: Client 半（市场标签页 UI，中文文案）
+- 🔄 Task 5: 端到端浏览器验证（待 DSH 实例重启加载插件）
