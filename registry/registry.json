@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "updatedAt": "2026-10-15T20:55:33.175Z",
+  "updatedAt": "2026-10-16T02:58:38.903Z",
   "plugins": [
     {
       "id": "ab-memory",
@@ -1258,7 +1258,7 @@
         "billing",
         "budget"
       ],
-      "version": "1.8.28",
+      "version": "1.8.29",
       "package": "dsh-cost-meter",
       "entry": {
         "id": "cost-meter",
@@ -1270,8 +1270,8 @@
       "repository": "https://github.com/Han-1413141/dsh-cost-meter",
       "icon": "https://avatars.githubusercontent.com/Han-1413141?size=96",
       "stars": 114,
-      "publishedAt": "2026-10-15T16:01:01.791Z",
-      "updatedAt": "2026-10-15T16:01:01.791Z"
+      "publishedAt": "2026-10-16T02:34:36.703Z",
+      "updatedAt": "2026-10-16T02:34:36.703Z"
     },
     {
       "id": "wechat-plugin",
@@ -1365,6 +1365,39 @@
       "stars": 102,
       "publishedAt": "2026-10-08T01:52:37.914Z",
       "updatedAt": "2026-10-08T01:52:37.914Z"
+    },
+    {
+      "id": "workbuddy-xdpool",
+      "origin": "community",
+      "name": "dsh-workbuddy-xdpool",
+      "summary": "Merge every locally signed-in WorkBuddy account into DeepSeek Harness as one auto-failing-over model pool (multi-acco…",
+      "description": "Merge every locally signed-in WorkBuddy account into DeepSeek Harness as one auto-failing-over model pool (multi-account rotation, live credits, daily check-in and model catalog).",
+      "author": {
+        "name": "aosi0526",
+        "url": "https://www.npmjs.com/~aosi0526"
+      },
+      "license": "MIT",
+      "tags": [
+        "workbuddy",
+        "codebuddy",
+        "model-provider",
+        "multi-account",
+        "failover"
+      ],
+      "version": "2.0.1",
+      "package": "dsh-workbuddy-xdpool",
+      "entry": {
+        "id": "workbuddy-xdpool",
+        "name": "dsh-workbuddy-xdpool",
+        "config": {}
+      },
+      "verified": false,
+      "homepage": "https://github.com/XDTrees/dsh-xdpool#readme",
+      "repository": "https://github.com/XDTrees/dsh-xdpool",
+      "icon": "https://avatars.githubusercontent.com/XDTrees?size=96",
+      "stars": 99,
+      "publishedAt": "2026-10-16T01:04:40.684Z",
+      "updatedAt": "2026-10-16T01:04:40.684Z"
     },
     {
       "id": "auto-memory",
@@ -2483,39 +2516,6 @@
       "updatedAt": "2026-10-13T14:54:09.137Z"
     },
     {
-      "id": "workbuddy-xdpool",
-      "origin": "community",
-      "name": "dsh-workbuddy-xdpool",
-      "summary": "Merge every locally signed-in WorkBuddy account into DeepSeek Harness as one auto-failing-over model pool (multi-acco…",
-      "description": "Merge every locally signed-in WorkBuddy account into DeepSeek Harness as one auto-failing-over model pool (multi-account rotation, live credits, daily check-in and model catalog).",
-      "author": {
-        "name": "aosi0526",
-        "url": "https://www.npmjs.com/~aosi0526"
-      },
-      "license": "MIT",
-      "tags": [
-        "workbuddy",
-        "codebuddy",
-        "model-provider",
-        "multi-account",
-        "failover"
-      ],
-      "version": "2.0.0",
-      "package": "dsh-workbuddy-xdpool",
-      "entry": {
-        "id": "workbuddy-xdpool",
-        "name": "dsh-workbuddy-xdpool",
-        "config": {}
-      },
-      "verified": false,
-      "homepage": "https://github.com/XDTrees/dsh-workbuddy-xdpool#readme",
-      "repository": "https://github.com/XDTrees/dsh-workbuddy-xdpool",
-      "icon": "https://avatars.githubusercontent.com/XDTrees?size=96",
-      "stars": 23,
-      "publishedAt": "2026-10-15T13:19:40.334Z",
-      "updatedAt": "2026-10-15T13:19:40.334Z"
-    },
-    {
       "id": "qqbot",
       "origin": "community",
       "name": "@zaofan/dsh-qqbot",
@@ -2900,6 +2900,39 @@
       "stars": 17,
       "publishedAt": "2026-10-10T21:13:18.402Z",
       "updatedAt": "2026-10-10T21:13:18.402Z"
+    },
+    {
+      "id": "@mengyuly-dsh-ponytail",
+      "origin": "community",
+      "name": "@mengyuly/dsh-ponytail",
+      "summary": "Lazy senior dev mode for DeepSeek Harness: always-on minimal-code ruleset, intensity switching, and short review/audi…",
+      "description": "Lazy senior dev mode for DeepSeek Harness: always-on minimal-code ruleset, intensity switching, and short review/audit/debt/gain/help skills",
+      "author": {
+        "name": "mengyuly",
+        "url": "https://www.npmjs.com/~mengyuly"
+      },
+      "license": "MIT",
+      "tags": [
+        "ponytail",
+        "ai-agent",
+        "agent-plugin",
+        "system-prompt",
+        "prompt-engineering"
+      ],
+      "version": "0.4.2",
+      "package": "@mengyuly/dsh-ponytail",
+      "entry": {
+        "id": "@mengyuly-dsh-ponytail",
+        "name": "@mengyuly/dsh-ponytail",
+        "config": {}
+      },
+      "verified": false,
+      "homepage": "https://github.com/MengYuil/dsh-ponytail#readme",
+      "repository": "https://github.com/MengYuil/dsh-ponytail",
+      "icon": "https://avatars.githubusercontent.com/MengYuil?size=96",
+      "stars": 16,
+      "publishedAt": "2026-10-13T02:08:01.151Z",
+      "updatedAt": "2026-10-13T02:08:01.151Z"
     },
     {
       "id": "huaweicloud-devkit",
@@ -3922,36 +3955,6 @@
       "stars": 9,
       "publishedAt": "2026-10-02T10:49:26.047Z",
       "updatedAt": "2026-10-02T10:49:26.047Z"
-    },
-    {
-      "id": "sandbox-local",
-      "origin": "community",
-      "name": "@morlay/dsh-sandbox-local",
-      "summary": "Configurable sandbox for dsh: replaces the shipped process-sandbox provider and filesystem fence with implementations…",
-      "description": "Configurable sandbox for dsh: replaces the shipped process-sandbox provider and filesystem fence with implementations that add extra writable roots, read-only roots and access denials on top of the upstream semantics, and owns the runtime-context snapshot",
-      "author": {
-        "name": "morlay_null",
-        "url": "https://www.npmjs.com/~morlay_null"
-      },
-      "license": "MIT",
-      "tags": [
-        "permission",
-        "sandbox"
-      ],
-      "version": "0.0.8",
-      "package": "@morlay/dsh-sandbox-local",
-      "entry": {
-        "id": "sandbox-local",
-        "name": "@morlay/dsh-sandbox-local",
-        "config": {}
-      },
-      "verified": false,
-      "homepage": "https://www.npmjs.com/package/@morlay/dsh-sandbox-local",
-      "repository": "https://github.com/morlay/dsh-plugin",
-      "icon": "https://avatars.githubusercontent.com/morlay?size=96",
-      "stars": 9,
-      "publishedAt": "2026-10-02T10:50:25.413Z",
-      "updatedAt": "2026-10-02T10:50:25.413Z"
     },
     {
       "id": "session-branch",
@@ -5142,7 +5145,7 @@
         "edit",
         "encoding"
       ],
-      "version": "1.5.0",
+      "version": "1.5.1",
       "package": "dsh-fs-encoding",
       "entry": {
         "id": "fs-encoding",
@@ -5154,8 +5157,8 @@
       "repository": "https://github.com/MrWeiCodes/dsh-fs-encoding",
       "icon": "https://avatars.githubusercontent.com/MrWeiCodes?size=96",
       "stars": 6,
-      "publishedAt": "2026-10-14T07:36:41.169Z",
-      "updatedAt": "2026-10-14T07:36:41.169Z"
+      "publishedAt": "2026-10-16T01:02:35.385Z",
+      "updatedAt": "2026-10-16T01:02:35.385Z"
     },
     {
       "id": "skills-anywhere",
@@ -5977,7 +5980,7 @@
         "webgl",
         "three-js"
       ],
-      "version": "0.7.0",
+      "version": "0.7.1",
       "package": "@dsh-use/wallpaper-engine",
       "entry": {
         "id": "@dsh-use-wallpaper-engine",
@@ -5989,8 +5992,8 @@
       "repository": "https://github.com/yu502950715yang/dsh-use-wallpaper",
       "icon": "https://avatars.githubusercontent.com/yu502950715yang?size=96",
       "stars": 4,
-      "publishedAt": "2026-10-13T08:29:09.427Z",
-      "updatedAt": "2026-10-13T08:29:09.427Z"
+      "publishedAt": "2026-10-16T02:04:38.895Z",
+      "updatedAt": "2026-10-16T02:04:38.895Z"
     },
     {
       "id": "thinking-effort",
@@ -7995,7 +7998,7 @@
         "ink",
         "coding-agent"
       ],
-      "version": "0.14.7",
+      "version": "0.14.8",
       "package": "@askdkc/dsh-cli",
       "entry": {
         "id": "@askdkc-dsh-cli",
@@ -8007,8 +8010,8 @@
       "repository": "https://github.com/askdkc/dsh-cli",
       "icon": "https://avatars.githubusercontent.com/askdkc?size=96",
       "stars": 2,
-      "publishedAt": "2026-10-11T16:02:18.424Z",
-      "updatedAt": "2026-10-11T16:02:18.424Z"
+      "publishedAt": "2026-10-16T01:40:34.077Z",
+      "updatedAt": "2026-10-16T01:40:34.077Z"
     },
     {
       "id": "agent-approval",
@@ -9015,7 +9018,7 @@
         "import",
         "migration"
       ],
-      "version": "0.1.73",
+      "version": "0.1.76",
       "package": "dsh-config-manager",
       "entry": {
         "id": "config-manager",
@@ -9027,8 +9030,8 @@
       "repository": "https://github.com/xiajiajun516/dsh-config-manager",
       "icon": "https://avatars.githubusercontent.com/xiajiajun516?size=96",
       "stars": 2,
-      "publishedAt": "2026-10-14T23:30:08.936Z",
-      "updatedAt": "2026-10-14T23:30:08.936Z"
+      "publishedAt": "2026-10-16T00:54:16.262Z",
+      "updatedAt": "2026-10-16T00:54:16.262Z"
     },
     {
       "id": "delete-turn",
@@ -9364,7 +9367,7 @@
         "sidebar",
         "commit-graph"
       ],
-      "version": "0.18.4",
+      "version": "0.18.5",
       "package": "dsh-ide-git",
       "entry": {
         "id": "ide-git",
@@ -9376,8 +9379,8 @@
       "repository": "https://github.com/KannaKuron/dsh-ide-git",
       "icon": "https://avatars.githubusercontent.com/KannaKuron?size=96",
       "stars": 2,
-      "publishedAt": "2026-10-14T05:45:03.717Z",
-      "updatedAt": "2026-10-14T05:45:03.717Z"
+      "publishedAt": "2026-10-16T01:44:34.343Z",
+      "updatedAt": "2026-10-16T01:44:34.343Z"
     },
     {
       "id": "instance-manager",
@@ -9846,7 +9849,7 @@
         "tunnel",
         "remote-development"
       ],
-      "version": "0.8.4",
+      "version": "0.8.5",
       "package": "dsh-remote-explorer",
       "entry": {
         "id": "remote-explorer",
@@ -9858,8 +9861,8 @@
       "repository": "https://github.com/btsd321/dsh-remote-explorer",
       "icon": "https://avatars.githubusercontent.com/btsd321?size=96",
       "stars": 2,
-      "publishedAt": "2026-10-08T19:38:59.108Z",
-      "updatedAt": "2026-10-08T19:38:59.108Z"
+      "publishedAt": "2026-10-15T21:53:39.585Z",
+      "updatedAt": "2026-10-15T21:53:39.585Z"
     },
     {
       "id": "remote-plugin",
@@ -10681,6 +10684,39 @@
       "updatedAt": "2026-10-15T14:47:50.794Z"
     },
     {
+      "id": "@goodandready-dsh-plugin-notify",
+      "origin": "community",
+      "name": "@goodandready/dsh-plugin-notify",
+      "summary": "DSH plugin: audio chimes, cross-session toasts, desktop push, IM webhooks, and web push (PWA) for turn completion, er…",
+      "description": "DSH plugin: audio chimes, cross-session toasts, desktop push, IM webhooks, and web push (PWA) for turn completion, errors, and approvals.",
+      "author": {
+        "name": "goodandready",
+        "url": "https://www.npmjs.com/~goodandready"
+      },
+      "license": "MIT",
+      "tags": [
+        "notifications",
+        "webhooks",
+        "desktop-push",
+        "web-push",
+        "pwa"
+      ],
+      "version": "0.4.4",
+      "package": "@goodandready/dsh-plugin-notify",
+      "entry": {
+        "id": "@goodandready-dsh-plugin-notify",
+        "name": "@goodandready/dsh-plugin-notify",
+        "config": {}
+      },
+      "verified": false,
+      "homepage": "https://github.com/GooDAnDReaDY/dsh-plugin-notify#readme",
+      "repository": "https://github.com/GooDAnDReaDY/dsh-plugin-notify",
+      "icon": "https://avatars.githubusercontent.com/GooDAnDReaDY?size=96",
+      "stars": 1,
+      "publishedAt": "2026-10-15T17:49:31.397Z",
+      "updatedAt": "2026-10-15T17:49:31.397Z"
+    },
+    {
       "id": "russian-lang",
       "origin": "community",
       "name": "@goodandready/dsh-russian-lang",
@@ -10985,7 +11021,7 @@
         "adapter",
         "provider"
       ],
-      "version": "0.13.3",
+      "version": "0.13.4",
       "package": "@mars-sea/dsh-commandcode-provider",
       "entry": {
         "id": "commandcode-provider",
@@ -10997,8 +11033,8 @@
       "repository": "https://github.com/Mars-Sea/dsh-commandcode-provider",
       "icon": "https://avatars.githubusercontent.com/Mars-Sea?size=96",
       "stars": 1,
-      "publishedAt": "2026-10-15T00:20:35.757Z",
-      "updatedAt": "2026-10-15T00:20:35.757Z"
+      "publishedAt": "2026-10-16T02:05:50.729Z",
+      "updatedAt": "2026-10-16T02:05:50.729Z"
     },
     {
       "id": "archive-manager",
@@ -12243,7 +12279,7 @@
         "line-anchored",
         "line-hash"
       ],
-      "version": "0.10.1",
+      "version": "0.10.2",
       "package": "dsh-hashline-edittool",
       "entry": {
         "id": "hashline-edittool",
@@ -12255,8 +12291,8 @@
       "repository": "https://github.com/hyperion2144/dsh-hashline-edittool",
       "icon": "https://avatars.githubusercontent.com/hyperion2144?size=96",
       "stars": 1,
-      "publishedAt": "2026-10-08T12:00:12.656Z",
-      "updatedAt": "2026-10-08T12:00:12.656Z"
+      "publishedAt": "2026-10-15T23:59:27.977Z",
+      "updatedAt": "2026-10-15T23:59:27.977Z"
     },
     {
       "id": "home-hosted",
@@ -12912,7 +12948,7 @@
         "plugin-manager",
         "install"
       ],
-      "version": "0.4.7",
+      "version": "0.4.8",
       "package": "dsh-plugin-install",
       "entry": {
         "id": "install",
@@ -12924,8 +12960,8 @@
       "repository": "https://github.com/qinyre/dsh-plugin-install",
       "icon": "https://avatars.githubusercontent.com/qinyre?size=96",
       "stars": 1,
-      "publishedAt": "2026-10-15T13:17:12.013Z",
-      "updatedAt": "2026-10-15T13:17:12.013Z"
+      "publishedAt": "2026-10-16T02:28:40.195Z",
+      "updatedAt": "2026-10-16T02:28:40.195Z"
     },
     {
       "id": "marketplace",
@@ -13974,7 +14010,7 @@
         "monaco-editor",
         "diff"
       ],
-      "version": "0.15.6",
+      "version": "0.15.7",
       "package": "dsh-vscode-mode",
       "entry": {
         "id": "vscode-mode",
@@ -13986,8 +14022,8 @@
       "repository": "https://github.com/Lenonss/DSH_VsCodeMode",
       "icon": "https://avatars.githubusercontent.com/Lenonss?size=96",
       "stars": 1,
-      "publishedAt": "2026-10-15T02:54:42.976Z",
-      "updatedAt": "2026-10-15T02:54:42.976Z"
+      "publishedAt": "2026-10-16T01:37:51.569Z",
+      "updatedAt": "2026-10-16T01:37:51.569Z"
     },
     {
       "id": "web-search-litellm",
@@ -14941,7 +14977,7 @@
       "tags": [
         "acp"
       ],
-      "version": "0.1.49",
+      "version": "0.1.53",
       "package": "@dsh-enhanced/acp",
       "entry": {
         "id": "acp",
@@ -14953,8 +14989,8 @@
       "repository": "https://github.com/22-ai-00/dsh-enhanced",
       "icon": "https://avatars.githubusercontent.com/22-ai-00?size=96",
       "stars": 0,
-      "publishedAt": "2026-10-14T06:58:49.737Z",
-      "updatedAt": "2026-10-14T06:58:49.737Z"
+      "publishedAt": "2026-10-16T00:31:29.885Z",
+      "updatedAt": "2026-10-16T00:31:29.885Z"
     },
     {
       "id": "assistant-actions",
@@ -14968,7 +15004,7 @@
       },
       "license": "MIT",
       "tags": [],
-      "version": "0.1.49",
+      "version": "0.1.53",
       "package": "@dsh-enhanced/assistant-actions",
       "entry": {
         "id": "assistant-actions",
@@ -14980,8 +15016,8 @@
       "repository": "https://github.com/22-ai-00/dsh-enhanced",
       "icon": "https://avatars.githubusercontent.com/22-ai-00?size=96",
       "stars": 0,
-      "publishedAt": "2026-10-14T06:59:21.465Z",
-      "updatedAt": "2026-10-14T06:59:21.465Z"
+      "publishedAt": "2026-10-16T00:31:59.492Z",
+      "updatedAt": "2026-10-16T00:31:59.492Z"
     },
     {
       "id": "assistant-automations",
@@ -14995,7 +15031,7 @@
       },
       "license": "MIT",
       "tags": [],
-      "version": "0.1.49",
+      "version": "0.1.53",
       "package": "@dsh-enhanced/assistant-automations",
       "entry": {
         "id": "assistant-automations",
@@ -15007,8 +15043,8 @@
       "repository": "https://github.com/22-ai-00/dsh-enhanced",
       "icon": "https://avatars.githubusercontent.com/22-ai-00?size=96",
       "stars": 0,
-      "publishedAt": "2026-10-14T06:59:12.790Z",
-      "updatedAt": "2026-10-14T06:59:12.790Z"
+      "publishedAt": "2026-10-16T00:32:32.544Z",
+      "updatedAt": "2026-10-16T00:32:32.544Z"
     },
     {
       "id": "assistant-deepseek-budget",
@@ -15022,7 +15058,7 @@
       },
       "license": "MIT",
       "tags": [],
-      "version": "0.1.49",
+      "version": "0.1.53",
       "package": "@dsh-enhanced/assistant-deepseek-budget",
       "entry": {
         "id": "assistant-deepseek-budget",
@@ -15034,8 +15070,8 @@
       "repository": "https://github.com/22-ai-00/dsh-enhanced",
       "icon": "https://avatars.githubusercontent.com/22-ai-00?size=96",
       "stars": 0,
-      "publishedAt": "2026-10-14T06:59:42.739Z",
-      "updatedAt": "2026-10-14T06:59:42.739Z"
+      "publishedAt": "2026-10-16T00:32:37.934Z",
+      "updatedAt": "2026-10-16T00:32:37.934Z"
     },
     {
       "id": "assistant-delivery",
@@ -15049,7 +15085,7 @@
       },
       "license": "MIT",
       "tags": [],
-      "version": "0.1.49",
+      "version": "0.1.53",
       "package": "@dsh-enhanced/assistant-delivery",
       "entry": {
         "id": "assistant-delivery",
@@ -15061,8 +15097,8 @@
       "repository": "https://github.com/22-ai-00/dsh-enhanced",
       "icon": "https://avatars.githubusercontent.com/22-ai-00?size=96",
       "stars": 0,
-      "publishedAt": "2026-10-14T06:59:19.159Z",
-      "updatedAt": "2026-10-14T06:59:19.159Z"
+      "publishedAt": "2026-10-16T00:32:57.892Z",
+      "updatedAt": "2026-10-16T00:32:57.892Z"
     },
     {
       "id": "assistant-evaluation",
@@ -15076,7 +15112,7 @@
       },
       "license": "MIT",
       "tags": [],
-      "version": "0.1.49",
+      "version": "0.1.53",
       "package": "@dsh-enhanced/assistant-evaluation",
       "entry": {
         "id": "assistant-evaluation",
@@ -15088,8 +15124,8 @@
       "repository": "https://github.com/22-ai-00/dsh-enhanced",
       "icon": "https://avatars.githubusercontent.com/22-ai-00?size=96",
       "stars": 0,
-      "publishedAt": "2026-10-14T07:00:28.100Z",
-      "updatedAt": "2026-10-14T07:00:28.100Z"
+      "publishedAt": "2026-10-16T00:32:53.750Z",
+      "updatedAt": "2026-10-16T00:32:53.750Z"
     },
     {
       "id": "assistant-evolution",
@@ -15103,7 +15139,7 @@
       },
       "license": "MIT",
       "tags": [],
-      "version": "0.1.49",
+      "version": "0.1.53",
       "package": "@dsh-enhanced/assistant-evolution",
       "entry": {
         "id": "assistant-evolution",
@@ -15115,8 +15151,8 @@
       "repository": "https://github.com/22-ai-00/dsh-enhanced",
       "icon": "https://avatars.githubusercontent.com/22-ai-00?size=96",
       "stars": 0,
-      "publishedAt": "2026-10-14T06:59:20.152Z",
-      "updatedAt": "2026-10-14T06:59:20.152Z"
+      "publishedAt": "2026-10-16T00:33:47.389Z",
+      "updatedAt": "2026-10-16T00:33:47.389Z"
     },
     {
       "id": "assistant-goals",
@@ -15130,7 +15166,7 @@
       },
       "license": "MIT",
       "tags": [],
-      "version": "0.1.49",
+      "version": "0.1.53",
       "package": "@dsh-enhanced/assistant-goals",
       "entry": {
         "id": "assistant-goals",
@@ -15142,8 +15178,8 @@
       "repository": "https://github.com/22-ai-00/dsh-enhanced",
       "icon": "https://avatars.githubusercontent.com/22-ai-00?size=96",
       "stars": 0,
-      "publishedAt": "2026-10-14T07:00:27.531Z",
-      "updatedAt": "2026-10-14T07:00:27.531Z"
+      "publishedAt": "2026-10-16T00:32:25.180Z",
+      "updatedAt": "2026-10-16T00:32:25.180Z"
     },
     {
       "id": "assistant-growth-contract",
@@ -15159,7 +15195,7 @@
       "tags": [
         "workflow-learning"
       ],
-      "version": "0.1.49",
+      "version": "0.1.53",
       "package": "@dsh-enhanced/assistant-growth-contract",
       "entry": {
         "id": "assistant-growth-contract",
@@ -15171,8 +15207,8 @@
       "repository": "https://github.com/22-ai-00/dsh-enhanced",
       "icon": "https://avatars.githubusercontent.com/22-ai-00?size=96",
       "stars": 0,
-      "publishedAt": "2026-10-14T06:59:59.058Z",
-      "updatedAt": "2026-10-14T06:59:59.058Z"
+      "publishedAt": "2026-10-16T00:31:38.307Z",
+      "updatedAt": "2026-10-16T00:31:38.307Z"
     },
     {
       "id": "assistant-heartbeat",
@@ -15186,7 +15222,7 @@
       },
       "license": "MIT",
       "tags": [],
-      "version": "0.1.49",
+      "version": "0.1.53",
       "package": "@dsh-enhanced/assistant-heartbeat",
       "entry": {
         "id": "assistant-heartbeat",
@@ -15198,8 +15234,8 @@
       "repository": "https://github.com/22-ai-00/dsh-enhanced",
       "icon": "https://avatars.githubusercontent.com/22-ai-00?size=96",
       "stars": 0,
-      "publishedAt": "2026-10-14T06:59:28.610Z",
-      "updatedAt": "2026-10-14T06:59:28.610Z"
+      "publishedAt": "2026-10-16T00:32:44.078Z",
+      "updatedAt": "2026-10-16T00:32:44.078Z"
     },
     {
       "id": "assistant-policy",
@@ -15213,7 +15249,7 @@
       },
       "license": "MIT",
       "tags": [],
-      "version": "0.1.49",
+      "version": "0.1.53",
       "package": "@dsh-enhanced/assistant-policy",
       "entry": {
         "id": "assistant-policy",
@@ -15225,8 +15261,8 @@
       "repository": "https://github.com/22-ai-00/dsh-enhanced",
       "icon": "https://avatars.githubusercontent.com/22-ai-00?size=96",
       "stars": 0,
-      "publishedAt": "2026-10-14T07:01:25.421Z",
-      "updatedAt": "2026-10-14T07:01:25.421Z"
+      "publishedAt": "2026-10-16T00:31:32.842Z",
+      "updatedAt": "2026-10-16T00:31:32.842Z"
     },
     {
       "id": "assistant-proactive",
@@ -15240,7 +15276,7 @@
       },
       "license": "MIT",
       "tags": [],
-      "version": "0.1.49",
+      "version": "0.1.53",
       "package": "@dsh-enhanced/assistant-proactive",
       "entry": {
         "id": "assistant-proactive",
@@ -15252,8 +15288,8 @@
       "repository": "https://github.com/22-ai-00/dsh-enhanced",
       "icon": "https://avatars.githubusercontent.com/22-ai-00?size=96",
       "stars": 0,
-      "publishedAt": "2026-10-14T06:59:34.994Z",
-      "updatedAt": "2026-10-14T06:59:34.994Z"
+      "publishedAt": "2026-10-16T00:33:10.120Z",
+      "updatedAt": "2026-10-16T00:33:10.120Z"
     },
     {
       "id": "assistant-recovery",
@@ -15267,7 +15303,7 @@
       },
       "license": "MIT",
       "tags": [],
-      "version": "0.1.49",
+      "version": "0.1.53",
       "package": "@dsh-enhanced/assistant-recovery",
       "entry": {
         "id": "assistant-recovery",
@@ -15279,8 +15315,8 @@
       "repository": "https://github.com/22-ai-00/dsh-enhanced",
       "icon": "https://avatars.githubusercontent.com/22-ai-00?size=96",
       "stars": 0,
-      "publishedAt": "2026-10-14T07:00:15.423Z",
-      "updatedAt": "2026-10-14T07:00:15.423Z"
+      "publishedAt": "2026-10-16T00:34:38.733Z",
+      "updatedAt": "2026-10-16T00:34:38.733Z"
     },
     {
       "id": "assistant-skills",
@@ -15294,7 +15330,7 @@
       },
       "license": "MIT",
       "tags": [],
-      "version": "0.1.49",
+      "version": "0.1.53",
       "package": "@dsh-enhanced/assistant-skills",
       "entry": {
         "id": "assistant-skills",
@@ -15306,8 +15342,8 @@
       "repository": "https://github.com/22-ai-00/dsh-enhanced",
       "icon": "https://avatars.githubusercontent.com/22-ai-00?size=96",
       "stars": 0,
-      "publishedAt": "2026-10-14T07:00:13.723Z",
-      "updatedAt": "2026-10-14T07:00:13.723Z"
+      "publishedAt": "2026-10-16T00:34:18.564Z",
+      "updatedAt": "2026-10-16T00:34:18.564Z"
     },
     {
       "id": "assistant-super-relay-budget",
@@ -15324,7 +15360,7 @@
         "super-relay",
         "openai-responses"
       ],
-      "version": "0.1.49",
+      "version": "0.1.53",
       "package": "@dsh-enhanced/assistant-super-relay-budget",
       "entry": {
         "id": "assistant-super-relay-budget",
@@ -15336,8 +15372,8 @@
       "repository": "https://github.com/22-ai-00/dsh-enhanced",
       "icon": "https://avatars.githubusercontent.com/22-ai-00?size=96",
       "stars": 0,
-      "publishedAt": "2026-10-14T06:59:37.752Z",
-      "updatedAt": "2026-10-14T06:59:37.752Z"
+      "publishedAt": "2026-10-16T00:33:13.423Z",
+      "updatedAt": "2026-10-16T00:33:13.423Z"
     },
     {
       "id": "assistant-verifier",
@@ -15351,7 +15387,7 @@
       },
       "license": "MIT",
       "tags": [],
-      "version": "0.1.49",
+      "version": "0.1.53",
       "package": "@dsh-enhanced/assistant-verifier",
       "entry": {
         "id": "assistant-verifier",
@@ -15363,8 +15399,8 @@
       "repository": "https://github.com/22-ai-00/dsh-enhanced",
       "icon": "https://avatars.githubusercontent.com/22-ai-00?size=96",
       "stars": 0,
-      "publishedAt": "2026-10-14T07:00:14.377Z",
-      "updatedAt": "2026-10-14T07:00:14.377Z"
+      "publishedAt": "2026-10-16T00:37:34.367Z",
+      "updatedAt": "2026-10-16T00:37:34.367Z"
     },
     {
       "id": "coding-subscription-provider",
@@ -15382,7 +15418,7 @@
         "grok",
         "subscription"
       ],
-      "version": "0.1.49",
+      "version": "0.1.53",
       "package": "@dsh-enhanced/coding-subscription-provider",
       "entry": {
         "id": "coding-subscription-provider",
@@ -15394,8 +15430,8 @@
       "repository": "https://github.com/22-ai-00/dsh-enhanced",
       "icon": "https://avatars.githubusercontent.com/22-ai-00?size=96",
       "stars": 0,
-      "publishedAt": "2026-10-14T07:00:11.239Z",
-      "updatedAt": "2026-10-14T07:00:11.239Z"
+      "publishedAt": "2026-10-16T00:32:09.632Z",
+      "updatedAt": "2026-10-16T00:32:09.632Z"
     },
     {
       "id": "event-triggers",
@@ -15409,7 +15445,7 @@
       },
       "license": "MIT",
       "tags": [],
-      "version": "0.1.49",
+      "version": "0.1.53",
       "package": "@dsh-enhanced/event-triggers",
       "entry": {
         "id": "event-triggers",
@@ -15421,8 +15457,8 @@
       "repository": "https://github.com/22-ai-00/dsh-enhanced",
       "icon": "https://avatars.githubusercontent.com/22-ai-00?size=96",
       "stars": 0,
-      "publishedAt": "2026-10-14T06:59:29.038Z",
-      "updatedAt": "2026-10-14T06:59:29.038Z"
+      "publishedAt": "2026-10-16T00:33:19.798Z",
+      "updatedAt": "2026-10-16T00:33:19.798Z"
     },
     {
       "id": "hello",
@@ -15436,7 +15472,7 @@
       },
       "license": "MIT",
       "tags": [],
-      "version": "0.1.49",
+      "version": "0.1.53",
       "package": "@dsh-enhanced/hello",
       "entry": {
         "id": "hello",
@@ -15448,8 +15484,8 @@
       "repository": "https://github.com/22-ai-00/dsh-enhanced",
       "icon": "https://avatars.githubusercontent.com/22-ai-00?size=96",
       "stars": 0,
-      "publishedAt": "2026-10-14T06:57:53.471Z",
-      "updatedAt": "2026-10-14T06:57:53.471Z"
+      "publishedAt": "2026-10-16T00:32:48.445Z",
+      "updatedAt": "2026-10-16T00:32:48.445Z"
     },
     {
       "id": "lark-channel",
@@ -15463,7 +15499,7 @@
       },
       "license": "MIT",
       "tags": [],
-      "version": "0.1.49",
+      "version": "0.1.53",
       "package": "@dsh-enhanced/lark-channel",
       "entry": {
         "id": "lark-channel",
@@ -15475,8 +15511,8 @@
       "repository": "https://github.com/22-ai-00/dsh-enhanced",
       "icon": "https://avatars.githubusercontent.com/22-ai-00?size=96",
       "stars": 0,
-      "publishedAt": "2026-10-14T07:00:45.405Z",
-      "updatedAt": "2026-10-14T07:00:45.405Z"
+      "publishedAt": "2026-10-16T00:33:55.373Z",
+      "updatedAt": "2026-10-16T00:33:55.373Z"
     },
     {
       "id": "llm-route-capabilities",
@@ -15493,7 +15529,7 @@
         "llm",
         "tool-calls"
       ],
-      "version": "0.1.49",
+      "version": "0.1.53",
       "package": "@dsh-enhanced/llm-route-capabilities",
       "entry": {
         "id": "llm-route-capabilities",
@@ -15505,8 +15541,8 @@
       "repository": "https://github.com/22-ai-00/dsh-enhanced",
       "icon": "https://avatars.githubusercontent.com/22-ai-00?size=96",
       "stars": 0,
-      "publishedAt": "2026-10-14T06:59:03.882Z",
-      "updatedAt": "2026-10-14T06:59:03.882Z"
+      "publishedAt": "2026-10-16T00:32:03.756Z",
+      "updatedAt": "2026-10-16T00:32:03.756Z"
     },
     {
       "id": "personal-assistant",
@@ -15520,7 +15556,7 @@
       },
       "license": "MIT",
       "tags": [],
-      "version": "0.1.49",
+      "version": "0.1.53",
       "package": "@dsh-enhanced/personal-assistant",
       "entry": {
         "id": "personal-assistant",
@@ -15532,8 +15568,8 @@
       "repository": "https://github.com/22-ai-00/dsh-enhanced",
       "icon": "https://avatars.githubusercontent.com/22-ai-00?size=96",
       "stars": 0,
-      "publishedAt": "2026-10-14T06:59:57.685Z",
-      "updatedAt": "2026-10-14T06:59:57.685Z"
+      "publishedAt": "2026-10-16T00:33:11.289Z",
+      "updatedAt": "2026-10-16T00:33:11.289Z"
     },
     {
       "id": "personal-memory",
@@ -15547,7 +15583,7 @@
       },
       "license": "MIT",
       "tags": [],
-      "version": "0.1.49",
+      "version": "0.1.53",
       "package": "@dsh-enhanced/personal-memory",
       "entry": {
         "id": "personal-memory",
@@ -15559,8 +15595,8 @@
       "repository": "https://github.com/22-ai-00/dsh-enhanced",
       "icon": "https://avatars.githubusercontent.com/22-ai-00?size=96",
       "stars": 0,
-      "publishedAt": "2026-10-14T06:59:41.859Z",
-      "updatedAt": "2026-10-14T06:59:41.859Z"
+      "publishedAt": "2026-10-16T00:33:16.701Z",
+      "updatedAt": "2026-10-16T00:33:16.701Z"
     },
     {
       "id": "task-acceptance-contract",
@@ -15577,7 +15613,7 @@
         "acceptance",
         "verification"
       ],
-      "version": "0.1.49",
+      "version": "0.1.53",
       "package": "@dsh-enhanced/task-acceptance-contract",
       "entry": {
         "id": "task-acceptance-contract",
@@ -15589,8 +15625,8 @@
       "repository": "https://github.com/22-ai-00/dsh-enhanced",
       "icon": "https://avatars.githubusercontent.com/22-ai-00?size=96",
       "stars": 0,
-      "publishedAt": "2026-10-14T06:59:06.251Z",
-      "updatedAt": "2026-10-14T06:59:06.251Z"
+      "publishedAt": "2026-10-16T00:32:27.305Z",
+      "updatedAt": "2026-10-16T00:32:27.305Z"
     },
     {
       "id": "traex-acp-provider",
@@ -15608,7 +15644,7 @@
         "trae",
         "traex"
       ],
-      "version": "0.1.49",
+      "version": "0.1.53",
       "package": "@dsh-enhanced/traex-acp-provider",
       "entry": {
         "id": "traex-acp-provider",
@@ -15620,8 +15656,8 @@
       "repository": "https://github.com/22-ai-00/dsh-enhanced",
       "icon": "https://avatars.githubusercontent.com/22-ai-00?size=96",
       "stars": 0,
-      "publishedAt": "2026-10-14T07:01:48.069Z",
-      "updatedAt": "2026-10-14T07:01:48.069Z"
+      "publishedAt": "2026-10-16T00:32:15.945Z",
+      "updatedAt": "2026-10-16T00:32:15.945Z"
     },
     {
       "id": "core",
@@ -16684,7 +16720,7 @@
         "opencode",
         "grok-build"
       ],
-      "version": "2.10.0",
+      "version": "2.11.0",
       "package": "@henri-ralmeida/prumo",
       "entry": {
         "id": "prumo",
@@ -16696,8 +16732,8 @@
       "repository": "https://github.com/henri-ralmeida/prumo",
       "icon": "https://avatars.githubusercontent.com/henri-ralmeida?size=96",
       "stars": 0,
-      "publishedAt": "2026-10-15T12:22:18.301Z",
-      "updatedAt": "2026-10-15T12:22:18.301Z"
+      "publishedAt": "2026-10-16T01:15:39.108Z",
+      "updatedAt": "2026-10-16T01:15:39.108Z"
     },
     {
       "id": "better-locale",
@@ -16847,39 +16883,6 @@
       "stars": 0,
       "publishedAt": "2026-09-24T15:08:34.446Z",
       "updatedAt": "2026-09-24T15:08:34.446Z"
-    },
-    {
-      "id": "daily",
-      "origin": "community",
-      "name": "@kpeace/dsh-daily",
-      "summary": "DSH 日报插件：每日主动推荐多类型新闻，可用自然语言调教推荐偏好，提供含网页 / YouTube / 哔哩哔哩视频的高价值索引，并在右侧栏以常驻网页呈现、点击即达",
-      "description": "DSH 日报插件：每日主动推荐多类型新闻，可用自然语言调教推荐偏好，提供含网页 / YouTube / 哔哩哔哩视频的高价值索引，并在右侧栏以常驻网页呈现、点击即达。",
-      "author": {
-        "name": "kpeace",
-        "url": "https://www.npmjs.com/~kpeace"
-      },
-      "license": "MIT",
-      "tags": [
-        "daily",
-        "digest",
-        "news",
-        "rss",
-        "youtube"
-      ],
-      "version": "0.10.4",
-      "package": "@kpeace/dsh-daily",
-      "entry": {
-        "id": "daily",
-        "name": "@kpeace/dsh-daily",
-        "config": {}
-      },
-      "verified": false,
-      "homepage": "https://github.com/kp-z/dsh-dev-git-graph/tree/main/packages/dsh-daily",
-      "repository": "https://github.com/kp-z/dsh-dev-git-graph",
-      "icon": "https://avatars.githubusercontent.com/kp-z?size=96",
-      "stars": 0,
-      "publishedAt": "2026-10-14T09:11:10.580Z",
-      "updatedAt": "2026-10-14T09:11:10.580Z"
     },
     {
       "id": "smart-dl",
@@ -17281,7 +17284,7 @@
         "opencode",
         "agent-client-protocol"
       ],
-      "version": "0.1.118",
+      "version": "0.1.120",
       "package": "@sagentlab/navarch-runtime",
       "entry": {
         "id": "navarch-runtime",
@@ -17293,8 +17296,8 @@
       "repository": "https://github.com/sagentlab/navarch",
       "icon": "https://avatars.githubusercontent.com/sagentlab?size=96",
       "stars": 0,
-      "publishedAt": "2026-10-13T15:55:13.951Z",
-      "updatedAt": "2026-10-13T15:55:13.951Z"
+      "publishedAt": "2026-10-15T21:24:39.752Z",
+      "updatedAt": "2026-10-15T21:24:39.752Z"
     },
     {
       "id": "tui",
@@ -17598,7 +17601,7 @@
       "tags": [
         "agentone"
       ],
-      "version": "1.0.6",
+      "version": "1.0.7",
       "package": "dsh-agentone",
       "entry": {
         "id": "agentone",
@@ -17610,8 +17613,8 @@
       "repository": "",
       "icon": null,
       "stars": 0,
-      "publishedAt": "2026-10-15T10:05:48.311Z",
-      "updatedAt": "2026-10-15T10:05:48.311Z"
+      "publishedAt": "2026-10-16T02:24:40.990Z",
+      "updatedAt": "2026-10-16T02:24:40.990Z"
     },
     {
       "id": "aimail",
@@ -18773,7 +18776,7 @@
         "instructions",
         "custom-instructions"
       ],
-      "version": "1.3.1",
+      "version": "1.3.3",
       "package": "dsh-instruction-memory",
       "entry": {
         "id": "instruction-memory",
@@ -18785,8 +18788,8 @@
       "repository": "https://github.com/HERO476/dsh-instruction-memory",
       "icon": "https://avatars.githubusercontent.com/HERO476?size=96",
       "stars": 0,
-      "publishedAt": "2026-10-15T07:45:35.353Z",
-      "updatedAt": "2026-10-15T07:45:35.353Z"
+      "publishedAt": "2026-10-16T00:24:02.370Z",
+      "updatedAt": "2026-10-16T00:24:02.370Z"
     },
     {
       "id": "lan-guard",
@@ -19529,7 +19532,7 @@
         "wiki",
         "migration"
       ],
-      "version": "0.9.4",
+      "version": "0.10.0",
       "package": "dsh-plugin-memory",
       "entry": {
         "id": "dsh-plugin-memory",
@@ -19541,8 +19544,8 @@
       "repository": "https://github.com/LittleBlackTong/dsh-plugin-memory",
       "icon": "https://avatars.githubusercontent.com/LittleBlackTong?size=96",
       "stars": 0,
-      "publishedAt": "2026-10-15T09:05:39.673Z",
-      "updatedAt": "2026-10-15T09:05:39.673Z"
+      "publishedAt": "2026-10-16T02:25:58.193Z",
+      "updatedAt": "2026-10-16T02:25:58.193Z"
     },
     {
       "id": "model-proxy",
@@ -20549,7 +20552,7 @@
         "article-pipeline",
         "-----"
       ],
-      "version": "19.6.6",
+      "version": "19.6.7",
       "package": "lunheng-article-pipeline",
       "entry": {
         "id": "lunheng-article-pipeline",
@@ -20561,8 +20564,8 @@
       "repository": "https://github.com/zuoyunlai/lunheng-article-pipeline-dsh",
       "icon": "https://avatars.githubusercontent.com/zuoyunlai?size=96",
       "stars": 0,
-      "publishedAt": "2026-10-15T13:56:11.133Z",
-      "updatedAt": "2026-10-15T13:56:11.133Z"
+      "publishedAt": "2026-10-16T02:26:23.347Z",
+      "updatedAt": "2026-10-16T02:26:23.347Z"
     },
     {
       "id": "muche-dsh-plugin",
